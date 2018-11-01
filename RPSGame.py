@@ -1,5 +1,8 @@
 from random import randint
-
+print("***************")
+computerlives = 2
+playerlives = 2 
+print("Welcome, you have ", playerlives, " lives.")
 # available weapons => store this in an array
 choices = ["Rock", "Paper", "Scissors"]
 player = False
@@ -23,21 +26,26 @@ while player == False:
         if computer == "Paper":
         # computer won
             print("You lose!", computer, "covers", player)
+            playerlives = playerlives-1
         else:
             print("You win", player, "smashes", computer)
-
+            computerlives = computerlives-1
 
     elif player == "Paper":
         if computer == "Scissors":
             print("You lose!", computer, "cuts", player)
+            playerlives = playerlives -1
         else:
             print("You win", player, "covers", computer)
+            computerlives = computerlives -1
 
     elif player == "Scissors":
         if computer == "Rock":
             print("You lose", computer, "smashes", player)
+            playerlives = playerlives -1
         else:
             print("You win!", player, "cuts", computer)
+            computerlives = computerlives -1
 
     elif player == "Quit":
         exit()
@@ -46,5 +54,13 @@ while player == False:
     else:
         print("Not a valid option. Check again. and check your spelling\n")
 
+    print("Computer has", computerlives, "lives")
+    if playerlives == 0:
+        print("Player Loses")
+    if computerlives == 0:
+        print("Computer Loses")
+        exit()
+        print("Play again")
+    
     player = False
     computer = choices[randint(0, 2)]
